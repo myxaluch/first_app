@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
   end
 
   def search
-    @result = FoodAdditive.find_by! name: params[:value].upcase
+    @query = params[:value].upcase
+    @result = FoodAdditive.search_E @query
   end
 end
