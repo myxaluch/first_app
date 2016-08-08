@@ -8,5 +8,4 @@ class FoodAdditive < ActiveRecord::Base
     end
     FoodAdditive.find_by! name: query
   end
-
 end

@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  resources :food_additives, only: [:new, :create]
+  resources :food_additives
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'static_pages#index'
   match '/search', to: 'static_pages#search', via: 'get'
+
+  namespace :admin do
+    
+  end
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
