@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   match '/search', to: 'static_pages#search', via: 'get'
 
   namespace :admin do
-    
+    match '/', to: 'static_pages#index',      via: 'get'
   end
 
 
