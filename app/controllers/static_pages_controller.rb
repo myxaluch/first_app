@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def index
+    @rand = FoodAdditive.take
   end
 
   def search

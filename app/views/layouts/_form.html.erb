@@ -1,4 +1,8 @@
 <%= form_tag '/search', method: 'get' do %>
-  <%= text_field_tag :value %>
+  <% if @result.nil?  %>
+    <%= text_field_tag :value, nil, class: "form-control", placeholder: "#{@rand.name}" %>
+  <% else %>
+    <%= text_field_tag :value, nil, class: "form-control", placeholder: "#{@result.name}" %>
+  <% end %>
   <%= submit_tag "Search", class: "btn btn-large btn-primary" %>
 <% end%>

@@ -1,4 +1,5 @@
-<div class="container">
-    <%= content_tag(:h3, @first.name) %>
-    <%= content_tag(:p, @first.about) %>
-</div>
+<%= will_paginate %>
+  <ul>
+    <%= render @food_additives %>
+  </ul>
+<%= will_paginate %>

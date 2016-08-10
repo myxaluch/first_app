@@ -3,7 +3,7 @@ class Admin::FoodAdditivesController < ApplicationController
   layout 'admin'
 
   def show
-    @first = FoodAdditive.first
+    @food_additives = FoodAdditive.paginate(page: params[:page])
   end
 
   def new
