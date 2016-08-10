@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
 
   def record_not_found
     flash[:info] = "Данной добавки не найдено"
-    redirect_to root_url
+    redirect_to :back
   end
 end

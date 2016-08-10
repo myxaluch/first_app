@@ -2,7 +2,7 @@ class Admin::FoodAdditivesController < ApplicationController
   http_basic_authenticate_with name: "admin", password: "admin" unless Rails.env.development?
   layout 'admin'
 
-  def show
+  def index
     @food_additives = FoodAdditive.paginate(page: params[:page])
   end
 
@@ -15,6 +15,10 @@ class Admin::FoodAdditivesController < ApplicationController
     if @additive.save
       redirect_to @additive
     end
+  end
+
+  def show
+    @additive = FoodAdditive.find(params[:id])
   end
 
   def update

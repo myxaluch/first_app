@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
   def search
     if params[:value].empty?
       flash[:danger] = "Пожалуйста, введите название добавки"
-      redirect_to root_url
+      redirect_to :back
     else
       @query = params[:value].upcase
       @result = FoodAdditive.search_E @query
