@@ -3,6 +3,7 @@ class Admin::FoodAdditivesController < ApplicationController
   layout 'admin'
 
   def index
+    @rand = FoodAdditive.take
     @food_additives = FoodAdditive.paginate(page: params[:page])
   end
 

@@ -1,6 +1,9 @@
-<h1>Список</h1>
+<h1> Список </h1>
+
+<%= render 'shared/form' %>
+
+<div class="row">
+  <%= render @food_additives %>
+</div>
 
 <%= will_paginate %>
-<ul>
-  <%= render @food_additives %>
-</ul>

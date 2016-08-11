@@ -1,6 +1,6 @@
 <%= form_tag '/search', method: 'get' do %>
   <% if @result.nil?  %>
-    <%= text_field_tag :value, nil, class: "form-control", placeholder: "#{@rand.name}" %>
+    <%= text_field_tag :value, nil, class: "form-control", placeholder: "Например, #{@rand.name}" %>
   <% else %>
     <%= text_field_tag :value, nil, class: "form-control", placeholder: "#{@result.name}" %>
   <% end %>
