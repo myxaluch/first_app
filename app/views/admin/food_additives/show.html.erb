@@ -1,5 +1,6 @@
 <div class='container'>
   <%= form_for @additive, url: {action: "update"} do |f| %>
+    <%= render 'shared/error_messages', object: f.object%>
     <%= f.text_field :name, value: @additive.name %>
     <%= f.text_area :about, value: @additive.about %>
     <%= f.submit "Сохранить", class: "btn btn-large btn-primary" %>

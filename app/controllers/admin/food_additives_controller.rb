@@ -12,9 +12,12 @@ class Admin::FoodAdditivesController < ApplicationController
   end
 
   def create
-    @additive = FoodAdditive.new
+    @additive = FoodAdditive.new(additive_params)
     if @additive.save
-      redirect_to @additive
+      flash[:success] = "Информация добавлена"
+      redirect_to admin_food_additive_path(@additive.id)
+    else
+      render 'new'
     end
   end
 
