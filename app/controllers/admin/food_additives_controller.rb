@@ -5,10 +5,22 @@ class Admin::FoodAdditivesController < ApplicationController
   def index
     @rand = FoodAdditive.take
     @food_additives = FoodAdditive.paginate(page: params[:page]).order(:name)
+    @search = "/admin/search"
   end
 
   def new
     @additive = FoodAdditive.new
+  end
+
+  def search
+    if params[:value].empty?
+      flash[:danger] = "Пожалуйста, введите название добавки"
+      redirect_to :back
+    else
+      @query = params[:value].upcase
+      @result = FoodAdditive.search_E @query
+      redirect_to admin_food_additive_path(@result.id)
+    end
   end
 
   def create

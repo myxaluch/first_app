@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :food_additives, only: [:show, :new, :create, :update, :destroy]
     match '/', to: 'food_additives#index', via: 'get'
+    match '/search', to: 'food_additives#search', via: 'get'
   end
 
 
