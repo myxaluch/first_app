@@ -1,29 +1,5 @@
 <%= content_tag :div, class: 'col-xs-6 col-md-3' do -%>
-  <%= content_tag :div, class: 'thumbnail' do -%>
-    <%= content_tag :div, class: 'caption' do -%>
-      <%= content_tag :h3, food_additive.name %>
-      <%= button_tag 'Edit', type: 'button', class: 'btn btn-primary btn-mg', data: { toggle: "modal", target: "#myModal"} %>
-    <% end -%>
+  <%= link_to admin_food_additive_path(food_additive), class: 'thumbnail' do -%>
+      <%= content_tag :h3, food_additive.name, class: 'center' %>
   <% end -%>
-<% end -%>
-
-
-
-<%= content_tag :div, class: 'modal fade', id: 'myModal', tabindex: '-1', role: 'dialog', aria: {labelledby: 'myModalLabel',hidden: 'true'} do -%>
-<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> -->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <%= content_tag :h4, food_additive.name, class: 'modal-title', id: 'myModalLabel' %>
-      </div>
-      <div class="modal-body">
-        <%= content_tag :p, food_additive.about %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-        <button type="button" class="btn btn-primary">Сохранить изменения</button>
-      </div>
-    </div>
-  </div>
 <% end -%>
