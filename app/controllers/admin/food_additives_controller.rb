@@ -5,7 +5,7 @@ class Admin::FoodAdditivesController < ApplicationController
   def index
     @rand = FoodAdditive.take
     @food_additives = FoodAdditive.paginate(page: params[:page]).order(:name)
-    @search = "/admin/search"
+    @search_path = "/admin/search"
   end
 
   def new
