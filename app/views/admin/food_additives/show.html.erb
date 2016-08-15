@@ -1,8 +1,13 @@
-<div class='container'>
+<%= content_tag :div, class: 'container' do %>
   <%= form_for @additive, url: {action: "update"} do |f| %>
     <%= render 'shared/error_messages', object: f.object%>
 
     <%= f.text_field :name, value: @additive.name %>
+    <%= f.text_field :category, value: @additive.category %>
+    <%= f.url_field :source, value: @additive.source %>
+    <%= f.select :danger, options_for_select([['0', 0], ['1', 1], ['2', 2],
+                                              ['2', 3], ['4', 4], ['5', 5]],
+                                              @additive.danger) %>
     <%= f.text_area :about, value: @additive.about %>
 
     <%= f.submit "Сохранить", class: "btn btn-lg btn-primary" %>
@@ -10,4 +15,4 @@
                            method: :delete, class: "btn btn-lg btn-danger",
                            data: { confirm: "Are you sure?" } %>
   <% end %>
-</dev>
+<% end %>

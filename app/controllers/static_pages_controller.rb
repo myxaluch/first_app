@@ -1,6 +1,5 @@
 class StaticPagesController < ApplicationController
   def index
-    @rand = FoodAdditive.take
     @search_path = "/search"
   end
 

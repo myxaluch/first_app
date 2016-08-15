@@ -182,6 +182,7 @@ DEPENDENCIES
   faker
   jbuilder (~> 2.0)
   jquery-rails
+  nokogiri
   pg
   rails (= 5.0.0)
   rails_12factor

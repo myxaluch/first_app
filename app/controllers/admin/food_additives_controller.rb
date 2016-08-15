@@ -3,7 +3,6 @@ class Admin::FoodAdditivesController < ApplicationController
   layout 'admin'
 
   def index
-    @rand = FoodAdditive.take
     @food_additives = FoodAdditive.paginate(page: params[:page]).order(:name)
     @search_path = "/admin/search"
   end
@@ -33,6 +32,13 @@ class Admin::FoodAdditivesController < ApplicationController
     end
   end
 
+  def download
+    if params[:source]
+      flash[:danger] = "Пожалуйста, введите адрес"
+      redirect_to :back
+    end
+  end
+
   def show
     @additive = FoodAdditive.find(params[:id])
   end
@@ -57,7 +63,7 @@ class Admin::FoodAdditivesController < ApplicationController
     private
 
     def additive_params
-      params.require(:food_additive).permit(:name, :about)
+      params.require(:food_additive).permit(:name, :about, :category, :danger)
     end
 
 end

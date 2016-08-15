@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :food_additives, only: [:show, :new, :create, :update, :destroy]
     match '/', to: 'food_additives#index', via: 'get'
     match '/search', to: 'food_additives#search', via: 'get'
+    match '/food_additives/new', to: 'food_additives#download', via: 'post'
   end
 
 

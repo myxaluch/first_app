@@ -1,8 +1,12 @@
 <div class='container'>
   <%= form_for @additive, url: {action: "create"} do |f| %>
     <%= render 'shared/error_messages', object: f.object%>
-    <%= f.text_field :name  %>
-    <%= f.text_area :about %>
+    <%= f.text_field :name, placeholder: 'Name' %>
+    <%= f.text_field :category, placeholder: 'Category' %>
+    <%= f.url_field :source, placeholder: 'URL source (optional)' %>
+    <%= f.select :danger, options_for_select([['0', 0], ['1', 1], ['2', 2],
+                                              ['2', 3], ['4', 4], ['5', 5]], 1) %>
+    <%= f.text_area :about, placeholder: 'Short about' %>
     <%= f.submit "Сохранить", class: "btn btn-large btn-primary" %>
   <% end %>
 </div>
