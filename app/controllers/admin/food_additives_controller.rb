@@ -1,4 +1,6 @@
 class Admin::FoodAdditivesController < ApplicationController
+  require 'nokogiri'
+  require 'open-uri'
   http_basic_authenticate_with name: "admin", password: "admin" unless Rails.env.development?
   layout 'admin'
 
@@ -23,19 +25,17 @@ class Admin::FoodAdditivesController < ApplicationController
   end
 
   def create
-    @additive = FoodAdditive.new(additive_params)
+    if params[:auto]
+      h1 = parse_data params[:food_additive][:source].to_s
+      render plain: h1
+    elsif params[:manual]
+      @additive = FoodAdditive.new(additive_params)
+    end
     if @additive.save
       flash[:success] = "Информация добавлена"
       redirect_to admin_food_additive_path(@additive.id)
     else
       render 'new'
-    end
-  end
-
-  def download
-    if params[:source]
-      flash[:danger] = "Пожалуйста, введите адрес"
-      redirect_to :back
     end
   end
 
@@ -64,6 +64,11 @@ class Admin::FoodAdditivesController < ApplicationController
 
     def additive_params
       params.require(:food_additive).permit(:name, :about, :category, :danger)
+    end
+
+    def parse_data(url)
+      doc = Nokogiri::HTML(open(url))
+      h1 = doc.xpath("//h1").first.content
     end
 
 end
