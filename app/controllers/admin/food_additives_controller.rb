@@ -26,8 +26,8 @@ class Admin::FoodAdditivesController < ApplicationController
 
   def create
     if params[:auto]
-      h1 = parse_data params[:food_additive][:source].to_s
-      render plain: h1
+      h1 = parse_data params[:food_additive][:name].to_s
+      @additive = FoodAdditive.new
     elsif params[:manual]
       @additive = FoodAdditive.new(additive_params)
     end
@@ -66,8 +66,8 @@ class Admin::FoodAdditivesController < ApplicationController
       params.require(:food_additive).permit(:name, :about, :category, :danger)
     end
 
-    def parse_data(url)
-      doc = Nokogiri::HTML(open(url))
+    def parse_data(name)
+      doc = Nokogiri::HTML(open("http://prodobavki.com/dobavki/#{name}.html"))
       h1 = doc.xpath("//h1").first.content
     end
 
