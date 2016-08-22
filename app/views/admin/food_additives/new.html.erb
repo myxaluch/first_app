@@ -6,8 +6,8 @@
     <%= f.text_field :name, placeholder: 'Name' %>
     <%= f.text_field :category, placeholder: 'Category' %>
     <%= f.submit "Загрузить(опционально)", class: "btn dtn-default", name: "auto" %>
-    <%= f.select :danger, options_for_select([['0', 0], ['1', 1], ['2', 2],
-                                              ['2', 3], ['4', 4], ['5', 5]], 1) %>
+    <%= f.select :danger, options_for_select([['Разрешена', 0], ['Нет информации', 1],
+                                              ['Запрещена', 2]], 1) %>
     <%= f.text_area :about, placeholder: 'Short about' %>
     <%= f.submit "Сохранить", class: "btn btn-large btn-primary", name: "manual" %>
   <% end %>

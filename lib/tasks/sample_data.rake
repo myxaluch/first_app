@@ -4,7 +4,7 @@ namespace :db do
     100.times do |n|
       name = "E#{n+100}"
       about = Faker::Lorem.paragraph(6)
-      danger = Faker::Number.between(0, 5)
+      danger = Faker::Number.between(0, 2)
       category = Faker::Hipster.word
       source = Faker::Internet.url
       FoodAdditive.create!(name: name,
