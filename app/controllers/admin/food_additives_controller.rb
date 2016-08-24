@@ -75,7 +75,7 @@ class Admin::FoodAdditivesController < ApplicationController
         @additive.name = additive
         @additive.about = doc.css("div#info_content").first.content
         @additive.category = doc.css("table tr td span")[2].content
-        if doc.css("div#legacy_badge div ul li")[2].content == "Россия — разрешена"
+        if doc.css("div#legacy_badge div ul li")[0].content == "Россия — разрешена"
           @additive.danger = 0
         elsif doc.css("div#legacy_badge div ul li")[0].content == "Россия — запрещена"
           @additive.danger = 2
