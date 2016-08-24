@@ -67,26 +67,22 @@ class Admin::FoodAdditivesController < ApplicationController
     end
 
     def parse_data(additive)
-      loop do
-        begin
-          doc = Nokogiri::HTML(open("http://prodobavki.com/dobavki/#{additive}.html"))
-        rescue OpenURI::HTTPError => e
-          flash[:danger] = "Данной добавки не существует!"
-          redirect_to new_admin_food_additive_path
+      begin
+        doc = Nokogiri::HTML(open("http://prodobavki.com/dobavki/#{additive}.html"))
+      rescue OpenURI::HTTPError => e
+        flash[:danger] = "Данной добавки не существует!"
+      else
+        @additive.name = additive
+        @additive.about = doc.css("div#info_content").first.content
+        @additive.category = doc.css("table tr td span")[2].content
+        if doc.css("div#legacy_badge div ul li")[2].content == "Россия — разрешена"
+          @additive.danger = 0
+        elsif doc.css("div#legacy_badge div ul li")[0].content == "Россия — запрещена"
+          @additive.danger = 2
         else
-          @additive.name = additive
-          @additive.about = doc.css("div#info_content").first.content
-          @additive.category = doc.css("table tr td span")[2].content
-          if doc.css("div#legacy_badge div ul li")[2].content == "Россия — разрешена"
-            @additive.danger = 0
-          elsif doc.css("div#legacy_badge div ul li")[0].content == "Россия — запрещена"
-            @additive.danger = 2
-          else
-            @additive.danger = 1
-          end
-          @additive.source = "http://prodobavki.com/dobavki/#{additive}.html"
+          @additive.danger = 1
         end
-        break unless @additive.source.nil? || @additive.source == ""
+        @additive.source = "http://prodobavki.com/dobavki/#{additive}.html"
       end
     end
   end

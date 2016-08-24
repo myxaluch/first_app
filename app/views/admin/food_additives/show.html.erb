@@ -2,13 +2,14 @@
   <%= form_for @additive, url: {action: "update"} do |f| %>
     <%= render 'shared/error_messages', object: f.object%>
     <%= f.text_field :name, value: @additive.name %>
+    <%= link_to "Original", @additive.source %>
     <br></br>
     <%= f.text_field :category, value: @additive.category %>
     <br></br>
-    <%= link_to "Original", @additive.source %>
     <%= f.select :danger, options_for_select([['Разрешена', 0], ['Нет информации', 1],
                                               ['Запрещена', 2]],
                                               @additive.danger) %>
+    <br></br>
     <%= f.text_area :about, value: @additive.about %>
     <%= f.submit "Сохранить", class: "btn btn-lg btn-primary" %>
     <%= link_to "Удалить", admin_food_additive_path(@additive.id),
