@@ -1,9 +1,10 @@
 <%= content_tag :div, class: 'container' do %>
   <%= form_for @additive, url: {action: "update"} do |f| %>
     <%= render 'shared/error_messages', object: f.object%>
-
     <%= f.text_field :name, value: @additive.name %>
+    <br></br>
     <%= f.text_field :category, value: @additive.category %>
+    <br></br>
     <%= link_to "Original", @additive.source %>
     <%= f.select :danger, options_for_select([['Разрешена', 0], ['Нет информации', 1],
                                               ['Запрещена', 2]],

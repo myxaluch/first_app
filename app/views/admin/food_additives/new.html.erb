@@ -3,11 +3,15 @@
     <%= render 'shared/error_messages', object: f.object%>
     <%= f.label "Введите имя для загрузки информации
                  с удалённого сайта и нажмите \"Загрузить\"" %>
+    <br></br>
     <%= f.text_field :name, placeholder: 'Name' %>
+    <br></br>
     <%= f.text_field :category, placeholder: 'Category' %>
-    <%= f.submit "Загрузить(опционально)", class: "btn dtn-default", name: "auto" %>
+    <br></br>
     <%= f.select :danger, options_for_select([['Разрешена', 0], ['Нет информации', 1],
                                               ['Запрещена', 2]], 1) %>
+    <br></br>
+    <%= f.submit "Загрузить(опционально)", class: "btn dtn-default", name: "auto" %>
     <%= f.text_area :about, placeholder: 'Short about' %>
     <%= f.submit "Сохранить", class: "btn btn-large btn-primary", name: "manual" %>
   <% end %>
