@@ -1,7 +1,11 @@
 class Admin::FoodAdditivesController < ApplicationController
   require 'nokogiri'
   require 'open-uri'
-  http_basic_authenticate_with name: "admin", password: "admin" unless Rails.env.development?
+  if Rails.env.development? || Rails.env.test?
+    require 'dotenv'
+    Dotenv.load
+  end
+  http_basic_authenticate_with name: ENV['ADMIN_LOGIN'], password: ENV['ADMIN_PASS'] unless Rails.env.development?
   layout 'admin'
 
   def index
