@@ -51,7 +51,7 @@ class Admin::FoodAdditivesController < ApplicationController
     @additive = FoodAdditive.find(params[:id])
     if @additive.update_attributes(additive_params)
       flash[:success] = "Информация обновлена"
-      redirect_to admin_food_additive_path(@additive.id)
+      redirect_to admin_path
     else
       render 'show'
     end
@@ -72,21 +72,22 @@ class Admin::FoodAdditivesController < ApplicationController
 
     def parse_data(additive)
       begin
-        doc = Nokogiri::HTML(open("http://prodobavki.com/dobavki/#{additive}.html"))
+        doc = Nokogiri::HTML(open("#{ENV['SOURCE_URL']}#{additive}"))
       rescue OpenURI::HTTPError => e
         flash[:danger] = "Данной добавки не существует!"
       else
         @additive.name = additive
-        @additive.about = doc.css("div#info_content").first.content
-        @additive.category = doc.css("table tr td span")[2].content
-        if doc.css("div#legacy_badge div ul li")[0].content == "Россия — разрешена"
+        @additive.about = doc.css(".content p").first.content
+        @additive.category = doc.css(".categories a").first.content
+        if doc.css(".danger a").first.content == "низкая" ||
+           doc.css(".danger a").first.content == "очень низкая" ||
           @additive.danger = 0
         elsif doc.css("div#legacy_badge div ul li")[0].content == "Россия — запрещена"
           @additive.danger = 2
         else
           @additive.danger = 1
         end
-        @additive.source = "http://prodobavki.com/dobavki/#{additive}.html"
+        @additive.source = "#{ENV['SOURCE_URL']}#{additive}"
       end
     end
   end
