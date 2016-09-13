@@ -16,6 +16,8 @@ gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'nokogiri'
+gem 'pug-rails', '~> 1.0'
+gem 'ejs'
 group :development, :test do
 # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
