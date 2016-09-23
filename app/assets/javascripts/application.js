@@ -14,6 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require pug/runtime
-//= require views/static_pages/search
 //= require bootstrap-sprockets
 //= require_tree .

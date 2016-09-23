@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module PureNature
   class Application < Rails::Application
+    config.jade.compile_debug = true
+    config.pug.compile_debug  = true
+    config.assets.paths << Rails.root.join('app/assets/javascripts/templates')
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
