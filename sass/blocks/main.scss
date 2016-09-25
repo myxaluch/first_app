@@ -5,7 +5,7 @@
   padding: 45px;
   background-image: url("../img/bg-1.jpg");
   background-repeat: no-repeat;
-  background-position: 50% 50%;
+  background-position: 50% 10%;
   background-size: cover;
 
   &::after {
@@ -23,7 +23,6 @@
 
 .main__title a {
   display: block;
-  width: 200px;
   margin: 0 auto;
 }
 

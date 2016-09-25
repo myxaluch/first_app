@@ -1,12 +1,12 @@
 @keyframes animation-background {
-  0% { background-image: url("../img/bg-1.jpg");  }
-  14% { background-image: url("../img/bg-2.jpg");  }
-  28% { background-image: url("../img/bg-3.jpg");  }
-  42% { background-image: url("../img/bg-4.jpg");  }
-  56% { background-image: url("../img/bg-5.jpg");  }
-  70% { background-image: url("../img/bg-6.jpg");  }
-  84% { background-image: url("../img/bg-7.jpg");  }
-  100% { background-image: url("../img/bg-8.jpg");  }
+  0% { background-image: url("../img/bg-1.jpg");  background-position: 50% 35%; }
+  14% { background-image: url("../img/bg-2.jpg");  background-position: 50% 50%;  }
+  28% { background-image: url("../img/bg-3.jpg");  background-position: 50% 50%;  }
+  42% { background-image: url("../img/bg-4.jpg");  background-position: 50% 50%;  }
+  56% { background-image: url("../img/bg-5.jpg");  background-position: 50% 15%;  }
+  70% { background-image: url("../img/bg-6.jpg");  background-position: 50% 50%;  }
+  84% { background-image: url("../img/bg-7.jpg");  background-position: 50% 50%;  }
+  100% { background-image: url("../img/bg-8.jpg");  background-position: 50% 50%;  }
 }
 
 .main__title {
