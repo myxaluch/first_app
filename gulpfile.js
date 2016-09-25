@@ -41,6 +41,13 @@ gulp.task("style", function() {
     .pipe(server.reload({stream: true}));
 });
 
+gulp.task('pug', function buildHTML() {
+  return gulp.src('pug/*.pug')
+  .pipe(pug())
+  .pipe(gulp.dest("app/build"))
+  .pipe(server.reload({stream: true}));
+});
+
 gulp.task("images", function() {
   return gulp.src("app/build/img/**/*.{png,jpg,gif}")
   .pipe(imagemin([
@@ -69,29 +76,21 @@ gulp.task("symbols", function() {
   .pipe(gulp.dest("app/build/img"));
 });
 
-gulp.task('pug', function buildHTML() {
-  return gulp.src('pug/*.pug')
-  .pipe(pug())
-  .pipe(gulp.dest("app/build"))
-  .pipe(server.reload({stream: true}));
-});
-
 gulp.task("serve", function() {
   server.init({
     server: "app/build"
   });
 
   gulp.watch("sass/**/*.{scss,sass}", ["style"]);
-  gulp.watch("pug/**/*.{pug}", ["pug"]);
+  gulp.watch("pug/**/*.pug", ["pug"]);
   gulp.watch("*.html").on("change", server.reload);
 });
 
 gulp.task("copy", function() {
  return gulp.src([
- "fonts/**/*.{woff,woff2}",
+ "font/**/*.{woff,woff2,ttf}",
  "img/**",
  "js/**",
- "*.html"
  ], {
  base: "."
  })
