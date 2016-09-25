@@ -1,0 +1,77 @@
+html
+  meta(charset="utf-8")
+  meta(name="viewport", content="width=device-width,initial-scale=1")
+  title Healthy planet
+  link(rel="stylesheet", href="css/style.css")
+body
+  div.content-wrapper
+    section.filter
+      h2.filter__title Фильтрация
+      form.filter-form
+        label.filter-form__label(for="search")
+        input.filter-form__search(id="search", type="text", name="search")
+        label.filter-form__label(for="category")
+        select.filter-form__category(id="category", name="category")
+          option Любая
+          option Антиоксиданты
+          option Ароматизаторы
+          option Вещества против слеживания
+          option Влагоудерживающие агенты
+          option Воски
+          option Загустители
+          option Комплексообразователи
+          option Консерванты
+          option Красители
+          option Пенообразователи
+          option Подсластители
+          option Разрыхлители
+          option Регуляторы кислотности
+          option Стабилизаторы
+          option Текстураторы
+          option Усилители вкуса и аромата
+          option Фиксаторы окраски
+          option Эмульгаторы
+        label.filter-form__label(for="danger")
+        select.filter-form__danger(id="danger", name="danger")
+          option Любая
+          option Высокая
+          option Средняя
+          option Низкая
+          option Очень низкая
+          option Нулевая
+        input.filter-form__btn(type="submit")
+    section.main
+      h2.main__title
+      ul.e-list
+        li.e-list__item
+          article.e
+            h3.e__title E-100
+            input.e__name(type="text" value="Куркумин (Curcumin)" readonly)
+            select.e__category(disabled)
+              option Любая
+              option Антиоксиданты
+              option Ароматизаторы
+              option Вещества против слеживания
+              option Влагоудерживающие агенты
+              option Воски
+              option Загустители
+              option Комплексообразователи
+              option Консерванты
+              option(selected) Красители
+              option Пенообразователи
+              option Подсластители
+              option Разрыхлители
+              option Регуляторы кислотности
+              option Стабилизаторы
+              option Текстураторы
+              option Усилители вкуса и аромата
+              option Фиксаторы окраски
+              option Эмульгаторы
+            select.e__danger(disabled)
+              option Любая
+              option Высокая
+              option Средняя
+              option Низкая
+              option(selected) Очень низкая
+              option Нулевая
+            textarea.e__description(disabled) Куркумины (пищевая добавка Е100) — ярко-желтые натуральные красители, получаемые из растения куркумы (Curcuma longa).

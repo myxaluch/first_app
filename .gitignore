@@ -19,4 +19,7 @@
 /log/*
 !/log/.keep
 /tmp
+node_modules/
+Thumbs.db
+app/build/
 /.env
