@@ -18,7 +18,6 @@ gem 'bootstrap-will_paginate'
 gem 'nokogiri'
 gem 'pug-rails', '~> 2.0'
 gem 'sprockets', '3.6.3'
-gem 'ejs'
 group :development, :test do
 # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
