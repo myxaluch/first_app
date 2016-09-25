@@ -20,6 +20,7 @@ input:focus, button:active {
   display: flex;
   flex-direction: column;
   height: 100%;
+  align-items: stretch;
 }
 
 .flex-contant {

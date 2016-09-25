@@ -1,5 +1,6 @@
 .e {
   position: relative;
+  display: none;
   width: 100%;
   margin: 20px 0;
   padding: 25px;
@@ -49,14 +50,6 @@
 
 @media (min-width: $tablet-size) {
   .e {
-    width: 70%;
     border: 1px $gray1 solid;
-    @include center-block();
-  }
-}
-
-@media (min-width: $desktop-size) {
-  .e {
-    width: 50%;
   }
 }
