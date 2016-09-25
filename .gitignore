@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore VS Code config
+/.vscode
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
@@ -18,3 +21,4 @@
 node_modules/
 Thumbs.db
 app/build/
+/.env
