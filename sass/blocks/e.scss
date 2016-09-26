@@ -1,6 +1,5 @@
 .e {
   position: relative;
-  display: none;
   width: 100%;
   margin: 20px 0;
   padding: 25px;
@@ -19,6 +18,10 @@
     &--danger::after {
       @include category($red1, "../img/danger.svg");
     }
+}
+
+.e--hidden {
+  display: none;
 }
 
 .e__element {
