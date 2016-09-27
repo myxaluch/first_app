@@ -22,3 +22,4 @@ node_modules/
 Thumbs.db
 app/build/
 /.env
+./Gemfile.lock
