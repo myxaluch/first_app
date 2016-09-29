@@ -4,34 +4,10 @@
   margin-bottom: 35px;
 }
 
-.result__info--hidden {
-  display: none;
-}
-
-.result__info-first {
-  display: none;
-  line-height: 1.5em;
-}
-
-.result__info-second {
-  padding: 10px;
-  font-family: $font;
-  line-height: 1.5em;
-}
-
 @media (min-width: $tablet-size) {
   .result {
     width: 70%;
     @include center-block();
-  }
-
-  .result__info-first {
-    display: block;
-    padding: 0px;
-  }
-
-  .result__info-second {
-    padding: 0px;
   }
 }
 

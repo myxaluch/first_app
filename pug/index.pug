@@ -6,7 +6,7 @@ html
   link(rel="stylesheet" href="css/style.css")
 body
   div.flex-container
-    main.flex-contant
+    header.flex-contant
       section.main
         h1.main__title
           img.preload(src="img/bg-2.jpg")
@@ -17,18 +17,19 @@ body
           img.preload(src="img/bg-7.jpg")
           img.preload(src="img/bg-8.jpg")
           a(href="/")
-            svg(width="300px" height="300px")
-              use(xlink:href="img/symbols.svg#logo-2")
+            svg(width="300px" height="100px")
+              use(xlink:href="img/symbols.svg#logo")
+    main.flex-contant
+      div.info
+        p.info__first Если вам бывает непонятен состав продуктов, которе вы покупаете, то этот сайт специально для вас. Пока здесь можно посмотреть расшифровку и опасность кодов пищевых добавок (E). Но совсем скоро добавятся и другие ингридиенты.
+        p.info__second Введите в поле поиска код пищевой добавки и узнайте, опасен ли продукт содержащий ее.
       form.form-block
         input.form-block__input.input-search(type="text" placeholder="Введите код добавки")
         button.form-block__btn.btn-search(type="button")
           svg(width="20px" height="20px")
             use(xlink:href="img/symbols.svg#search")
       section.result
-        div.result__info
-          p.result__info-first Если вам бывает непонятен состав продуктов, которе вы покупаете, то этот сайт специально для вас. Пока здесь можно посмотреть расшифровку и опасность кодов пищевых добавок (E). Но совсем скоро добавятся и другие ингридиенты.
-          p.result__info-second Введите в поле поиска код пищевой добавки и узнайте, опасен ли продукт содержащий ее.
-        article.e.e--normal.e--hidden
+        article.e.e--normal
           div.e__element
             h2.e__title E-100
           div.e__element

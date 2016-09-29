@@ -12,6 +12,16 @@ input:focus, button:active {
   outline: none;
 }
 
+button,
+button:active,
+button:focus {
+  outline: none;
+}
+
+p {
+  margin: 0;
+}
+
 .preload {
   display: none;
 }
