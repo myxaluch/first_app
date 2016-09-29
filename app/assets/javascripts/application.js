@@ -15,5 +15,4 @@
 //= require turbolinks
 //= require pug/runtime
 //= require search
-//= require bootstrap-sprockets
 //= require_tree .

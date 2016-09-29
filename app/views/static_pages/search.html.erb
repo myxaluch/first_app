@@ -1,4 +1,6 @@
-
-<script> $(function(){
-    $("div").html(JST.search({}));
-}); </script>
+<%= javascript_include_tag 'search' %>
+<div id="result">
+    <script> $(function(){
+        $("#result").html(JST.search({}));
+    }); </script>
+</div>

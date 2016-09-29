@@ -1,0 +1,62 @@
+.e {
+  position: relative;
+  width: 100%;
+  margin: 20px 0;
+  padding: 25px;
+  background: $white1;
+  border-top: 1px $gray1 solid;
+  border-bottom: 1px $gray1 solid;
+
+    &--normal::after {
+      @include category($green2, "../images/normal.svg");
+    }
+
+    &--medium::after {
+      @include category($orange1, "../images/medium.svg");
+    }
+
+    &--danger::after {
+      @include category($red1, "../images/danger.svg");
+    }
+}
+
+.e__element {
+  padding: 7px 0;
+}
+
+.e__element h2 {
+  margin: 0;
+  letter-spacing: 5px;
+}
+
+.e__label {
+  font-family: $font;
+}
+
+.e__danger {
+  &--normal {
+    color: $green2;
+  }
+
+  &--medium {
+    color: $orange1;
+  }
+
+  &--danger {
+    color: $red1;
+  }
+}
+
+@media (min-width: $tablet-size) {
+  .e {
+    width: 70%;
+    border: 1px $gray1 solid;
+    @include center-block();
+  }
+}
+
+@media (min-width: $desktop-size) {
+  .e {
+    width: 50%;
+  }
+}
