@@ -12,6 +12,16 @@ input:focus, button:active {
   outline: none;
 }
 
+button,
+button:active,
+button:focus {
+  outline: none;
+}
+
+p {
+  margin: 0;
+}
+
 .preload {
   display: none;
 }
@@ -20,6 +30,7 @@ input:focus, button:active {
   display: flex;
   flex-direction: column;
   height: 100%;
+  align-items: stretch;
 }
 
 .flex-contant {
@@ -28,6 +39,6 @@ input:focus, button:active {
 
 @media (min-width: $tablet-size) {
   body {
-    font-size: 20px;
+    font-size: 18px;
   }
 }

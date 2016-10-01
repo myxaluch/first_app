@@ -3,6 +3,7 @@
   flex-direction: row;
   flex: 0 0 auto;
   width: 100%;
+  margin-bottom: 0;
 }
 
 .form-block__input,
@@ -20,6 +21,16 @@
   border: 1px solid $gray1;
 }
 
+.form-block__input:hover {
+  border: 2px solid $gray1;
+  padding: 9px;
+}
+
+.form-block__input:focus {
+  border: 2px solid $gray1-opacity;
+  padding: 9px;
+}
+
 .form-block__btn {
   height: 40px;
   width: 50px;
@@ -27,6 +38,16 @@
   border: none;
   background-color: $gray1;
   color: $white1;
+  font-size: 0;
+}
+
+.form-block__btn:hover {
+background-color: $gray1-opacity;
+}
+
+.form-block__btn:active {
+  outline: none;
+  background-color: $gray1-opacity-2;
 }
 
 .form-block__btn svg {
@@ -42,7 +63,7 @@
   .form-block__input {
     height: 50px;
     padding: 10px;
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .form-block__btn {

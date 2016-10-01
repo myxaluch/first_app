@@ -1,29 +1,14 @@
 .main__title {
-  position: relative;
-  z-index: 1;
   margin: 0;
-  padding: 45px;
-  background-image: url("../images/bg-1.jpg");
+  padding: 45px 0;
+  background-image: url("../img/bg-1.jpg");
   background-repeat: no-repeat;
-  background-position: 50% 50%;
+  background-position: 50% 10%;
   background-size: cover;
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    height: 100%;
-    width: 100%;
-    background: $white1-opacity;
-    z-index: -1;
-  }
 }
 
 .main__title a {
   display: block;
-  width: 200px;
   margin: 0 auto;
 }
 
@@ -38,7 +23,8 @@
 }
 
 @media (min-width: $tablet-size) {
-  .main__title a {
-    width: 400px;
+  .main__title svg {
+    width: 600px;
+    height: 200px;
   }
 }

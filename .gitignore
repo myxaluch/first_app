@@ -28,3 +28,4 @@ public/font/*
 public/images/*
 # Ignore current enviroment settings
 /.env
+./Gemfile.lock

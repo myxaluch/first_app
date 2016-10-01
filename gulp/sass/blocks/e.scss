@@ -20,6 +20,10 @@
     }
 }
 
+.e--hidden {
+  display: none;
+}
+
 .e__element {
   padding: 7px 0;
 }
@@ -49,14 +53,6 @@
 
 @media (min-width: $tablet-size) {
   .e {
-    width: 70%;
     border: 1px $gray1 solid;
-    @include center-block();
-  }
-}
-
-@media (min-width: $desktop-size) {
-  .e {
-    width: 50%;
   }
 }
