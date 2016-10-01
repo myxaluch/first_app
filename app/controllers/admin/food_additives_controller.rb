@@ -79,15 +79,7 @@ class Admin::FoodAdditivesController < ApplicationController
         @additive.name = additive
         @additive.about = doc.css(".content p").first.content
         @additive.category = doc.css(".categories a").first.content
-        if doc.css(".danger a").first.content == "низкая" ||
-           doc.css(".danger a").first.content == "очень низкая"
-              @additive.danger = 0
-        elsif doc.css(".danger a").first.content == "высокая" ||
-              doc.css(".danger a").first.content == "очень высокая"
-              @additive.danger = 2
-        else
-              @additive.danger = 1
-        end
+        @additive.danger = doc.css(".danger a").first.content
         @additive.source = "#{ENV['SOURCE_URL']}#{additive}"
       end
     end

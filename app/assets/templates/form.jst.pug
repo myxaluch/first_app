@@ -1,0 +1,6 @@
+form.form-block.row(method="get" action="/search")
+        input(type="hidden" name="utf8" value="✓")
+        input.form-block__input(type="text" placeholder="Введите код добавки" name="value" id="value")
+        button.form-block__btn(type="submit")
+          svg(width="20px" height="20px")
+            use(xlink:href="images/symbols.svg#search")

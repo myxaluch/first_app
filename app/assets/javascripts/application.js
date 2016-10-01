@@ -15,4 +15,6 @@
 //= require turbolinks
 //= require pug/runtime
 //= require search
+//= require form
+//= require header
 //= require_tree .

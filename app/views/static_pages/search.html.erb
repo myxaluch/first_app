@@ -1,6 +1,5 @@
-<%= javascript_include_tag 'search' %>
 <div id="result">
     <script> $(function(){
-        $("#result").html(JST.search({}));
+        $("#result").html(JST["search"]({result: <%= raw @result.to_json %> }));
     }); </script>
 </div>

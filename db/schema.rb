@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20160815080124) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "source"
-    t.integer  "danger"
+    t.string  "danger"
     t.string   "category"
   end
 

@@ -9,9 +9,7 @@
     <br></br>
     <%= f.text_field :category, placeholder: 'Category' %>
     <br></br>
-    <%= f.select :danger, options_for_select([['Разрешена', 0], ['Нет информации', 1],
-                                                        ['Запрещена', 2]], 1), {},
-                          {class: 'form-control', id: 'select'} %>
+    <%= f.text_field :danger, placeholder: 'Danger' %>
     <br></br>
     <%= f.text_area :about, placeholder: 'Short about' %>
     <%= f.submit "Сохранить", class: "btn btn-large btn-primary", name: "manual" %>
