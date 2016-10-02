@@ -23,9 +23,6 @@ node_modules/
 Thumbs.db
 # Ignore result of gulp build
 app/build/
-public/assets/*
-public/font/*
-public/images/*
 # Ignore current enviroment settings
 /.env
 ./Gemfile.lock
