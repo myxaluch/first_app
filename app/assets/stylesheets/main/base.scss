@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $main-font, sans-serif;
+  font-size: 16px;
+  background-color: $white1;
+}
+
+input:focus, button:active {
+  outline: none;
+}
+
+button,
+button:active,
+button:focus {
+  outline: none;
+}
+
+p {
+  margin: 0;
+}
+
+.preload {
+  display: none;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: stretch;
+}
+
+.flex-contant {
+  flex: 1 0 auto;
+}
+
+@media (min-width: $tablet-size) {
+  body {
+    font-size: 18px;
+  }
+}

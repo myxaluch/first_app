@@ -1,5 +1,3 @@
-<div id="result">
-    <script> $(function(){
-        $("#result").html(JST["search"]({result: <%= raw @result.to_json %> }));
-    }); </script>
-</div>
+<script> $(function(){
+    $('main.flex-contant').append(JST["result"]({result: <%= raw @result.to_json %> }));
+}); </script>

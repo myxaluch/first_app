@@ -1,0 +1,84 @@
+.form-block {
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.form-block__input,
+.form-block__btn {
+  margin-top: 50px;
+}
+
+.form-block__input {
+  flex-grow: 2;
+  height: 40px;
+  padding: 5px;
+  font-family: $main-font, sans-serif;
+  font-size: 16px;
+  background-color: $white1;
+  border: 1px solid $gray1;
+}
+
+.form-block__input:hover {
+  border: 2px solid $gray1;
+  padding: 9px;
+}
+
+.form-block__input:focus {
+  border: 2px solid $gray1-opacity;
+  padding: 9px;
+}
+
+.form-block__btn {
+  height: 40px;
+  width: 50px;
+  padding: 10px;
+  border: none;
+  background-color: $gray1;
+  color: $white1;
+  font-size: 0;
+}
+
+.form-block__btn:hover {
+background-color: $gray1-opacity;
+}
+
+.form-block__btn:active {
+  outline: none;
+  background-color: $gray1-opacity-2;
+}
+
+.form-block__btn svg {
+  fill: $white1;
+}
+
+@media (min-width: $tablet-size) {
+  .form-block {
+    width: 70%;
+    @include center-block();
+  }
+
+  .form-block__input {
+    height: 50px;
+    padding: 10px;
+    font-size: 18px;
+  }
+
+  .form-block__btn {
+    height: 50px;
+    width: 70px;
+
+    & svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+
+@media (min-width: $desktop-size) {
+  .form-block {
+    width: 50%;
+  }
+}

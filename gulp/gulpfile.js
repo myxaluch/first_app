@@ -58,7 +58,7 @@ gulp.task("images", function() {
 });
 
 gulp.task("symbols", function() {
-  return gulp.src("../public/assets/images/icons/*.svg")
+  return gulp.src("images/icons/*.svg")
   .pipe(cheerio({
     run: function ($) {
       $("[fill]").removeAttr("fill");

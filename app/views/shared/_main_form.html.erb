@@ -1,0 +1,13 @@
+<main class='flex-contant'>
+    <% if @result.nil? %>
+        <script> $(function(){
+            $('main.flex-contant').html(JST["info"]());
+            $('main.flex-contant').append(JST["form"]({result: {"name": "Введите название добавки"},
+                                                       search: <%= raw @search_path.to_json%> }));
+        }); </script>
+    <% else %>
+        <script> $(function(){
+            $('main.flex-contant').html(JST["form"]({result: <%= raw @result.to_json %>}));
+        }); </script>
+    <% end %>
+</main>
