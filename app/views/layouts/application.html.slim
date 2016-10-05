@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+   title Health yeah! | Скажи да здоровью!
+   = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+   = javascript_include_tag 'application', 'data-turbolinks-track' => true
+   = csrf_meta_tags
+  body
+    div.flex-container
+      = render 'layouts/header'
+      = render 'shared/main_form'
+      = yield
+      = render 'layouts/footer'
+      = debug(params) if Rails.env.development?

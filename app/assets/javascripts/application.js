@@ -13,10 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require pug/runtime
-//= require result
-//= require form
-//= require info
-//= require header
-//= require footer
 //= require_tree .

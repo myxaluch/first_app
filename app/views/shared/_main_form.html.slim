@@ -1,0 +1,18 @@
+main.flex-content
+  - if @result.nil?
+    div.info
+      p.info__first Если вам бывает непонятен состав продуктов, которе вы покупаете, то этот сайт специально для вас. Пока здесь можно посмотреть расшифровку и опасность кодов пищевых добавок (E). Но совсем скоро добавятся и другие ингридиенты.
+      p.info__second Введите в поле поиска код пищевой добавки и узнайте, опасен ли продукт содержащий ее.
+    form.form-block.row(method="get" action="#{@search_path}")
+      input(type="hidden" name="utf8" value="✓")
+      input.form-block__input(type="text" placeholder="Введите имя добавки" name="value" id="value")
+      button.form-block__btn(type="submit")
+        svg(width="20px" height="20px")
+          use(xlink:href="assets/images/symbols.svg#search")
+  - else
+    form.form-block.row(method="get" action="#{@search_path}")
+      input(type="hidden" name="utf8" value="✓")
+      input.form-block__input(type="text" placeholder="#{@result.name}" name="value" id="value")
+      button.form-block__btn(type="submit")
+        svg(width="20px" height="20px")
+          use(xlink:href="assets/images/symbols.svg#search")

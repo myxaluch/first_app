@@ -15,8 +15,9 @@ gem 'bootstrap-sass'
 gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem "autoprefixer-rails"
+gem 'slim-rails'
 gem 'nokogiri'
-gem 'pug-rails', '~> 2.0'
 gem 'sprockets', '3.6.3'
 group :development, :test do
 # Use sqlite3 as the database for Active Record
