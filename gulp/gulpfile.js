@@ -34,18 +34,11 @@ gulp.task("style", function() {
         sort: true
       })
     ]))
-    .pipe(gulp.dest("../public/assets/stylesheets"))
+    .pipe(gulp.dest("../app/assets/stylesheets/main"))
     .pipe(minify())
     .pipe(rename("style.min.css"))
-    .pipe(gulp.dest("../public/assets/stylesheets"))
+    .pipe(gulp.dest("../app/assets/stylesheets/main"))
     .pipe(server.reload({stream: true}));
-});
-
-gulp.task('pug', function buildHTML() {
-  return gulp.src('pug/*.pug')
-  .pipe(pug())
-  .pipe(gulp.dest("../public/assets"))
-  .pipe(server.reload({stream: true}));
 });
 
 gulp.task("images", function() {
@@ -58,7 +51,7 @@ gulp.task("images", function() {
 });
 
 gulp.task("symbols", function() {
-  return gulp.src("images/icons/*.svg")
+  return gulp.src("../public/assets/images/icons/*.svg")
   .pipe(cheerio({
     run: function ($) {
       $("[fill]").removeAttr("fill");
@@ -76,21 +69,10 @@ gulp.task("symbols", function() {
   .pipe(gulp.dest("../public/assets/images"));
 });
 
-gulp.task("serve", function() {
-  server.init({
-    server: "../public/assets"
-  });
-
-  gulp.watch("sass/**/*.{scss,sass}", ["style"]);
-  gulp.watch("pug/**/*.pug", ["pug"]);
-  gulp.watch("*.html").on("change", server.reload);
-});
-
 gulp.task("copy", function() {
  return gulp.src([
- "font/**/*.{woff,woff2,ttf}",
- "images/**",
- "javascript/**",
+  "fonts/**/*.{woff,woff2,ttf}",
+  "images/**"
  ], {
  base: "."
  })
@@ -98,12 +80,11 @@ gulp.task("copy", function() {
 });
 
 gulp.task("clean", function() {
- return del("../public/assets", {force: true});
+ return del("../public/assets", {force: true}) && del("../app/assets/stylesheets/main", {force: true});
 });
 
 gulp.task("build", function(fn) {
   run("clean",
-  "pug",
   "style",
   "copy",
   "images",

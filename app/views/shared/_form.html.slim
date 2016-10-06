@@ -1,0 +1,6 @@
+form.form-block.row(method="get" action="#{@search_path}")
+  input(type="hidden" name="utf8" value="✓")
+  input.form-block__input(type="text" placeholder="#{name}" name="value" id="value")
+  button.form-block__btn(type="submit")
+    svg(width="20px" height="20px")
+      use(xlink:href="assets/images/symbols.svg#search")
