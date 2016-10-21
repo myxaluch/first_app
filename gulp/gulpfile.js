@@ -100,7 +100,7 @@ gulp.task("copy", function() {
 });
 
 gulp.task("clean", function() {
- return del("../public/assets/");
+ return del("../public/assets/", {force: true});
 });
 
 gulp.task("build", function(fn) {
