@@ -20,5 +20,5 @@
 /tmp
 node_modules/
 Thumbs.db
-app/build/
+public/assets
 /.env
