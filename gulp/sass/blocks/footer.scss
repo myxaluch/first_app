@@ -1,0 +1,32 @@
+.footer {
+  padding: 10px;
+  background-color: $gray2;
+}
+
+.flex-footer {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  flex: 0 0 auto;
+}
+
+.copyright--project {
+  align-self: flex-end;
+}
+
+@media (min-width: 550px) {
+  .flex-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+
+@media (min-width: $tablet-size) {
+  svg.copyright__line {
+    width: 160px;
+    height: 60px;
+  }
+}

@@ -1,0 +1,58 @@
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width,initial-scale=1")
+    title Health yeah! | Скажи да здоровью!
+    link(rel="shortcut icon" href="img/favicon.ico")
+    link(rel="stylesheet" href="css/style.css")
+  body
+    div.flex-container
+      header.flex-contant
+        section.main
+          h1.main__title
+            img.preload(src="img/bg-2.jpg")
+            img.preload(src="img/bg-3.jpg")
+            img.preload(src="img/bg-4.jpg")
+            img.preload(src="img/bg-5.jpg")
+            img.preload(src="img/bg-6.jpg")
+            img.preload(src="img/bg-7.jpg")
+            img.preload(src="img/bg-8.jpg")
+            a(href="/")
+              svg(width="300px" height="100px")
+                use(xlink:href="img/symbols.svg#logo")
+      main.flex-contant
+        div.info
+          p.info__first Если вам не до конца понятен состав продуктов, которые вы покупаете, если вы следите за здоровьем и придерживаетесь правильного питания, то этот сайт специально для вас. Вы можете в два клика найти описание и опасность любой пищевой добавки.
+          p.info__second Введите в поле поиска код неизвестной вам пищевой добавки и узнайте опасен ли продукт, содержащий данную добавку.
+        form.form-block
+          input.form-block__input.input-search(type="text" placeholder="Введите код добавки")
+          button.form-block__btn.btn-search(type="button")
+            svg(width="20px" height="20px")
+              use(xlink:href="img/symbols.svg#search")
+        section.result
+          article.e.e--normal
+            div.e__element
+              h2.e__title E-100
+            div.e__element
+              span.e__label Название:&nbsp;
+              span.e__name Куркумин (Curcumin)
+            div.e__element
+              span.e__label Категория:&nbsp;
+              span.e__category Красители
+            div.e__element
+              span.e__label Опасность:&nbsp;
+              span.e__danger.e__danger--normal Очень низкая
+            div.e__element
+              span.e__description Куркумины (пищевая добавка Е100) — ярко-желтые натуральные красители, получаемые из растения куркумы (Curcuma longa).
+      footer.footer.flex-footer
+        div.copyright.copyright--info
+          p Информация взята c&nbsp;
+            a(href="http://dobavkam.net/") сайта
+        div.copyright.copyright--project
+          p.copyright__line Разработано студией
+          svg.copyright__line(width="140px" height="40px")
+            use(xlink:href="img/symbols.svg#company-logo")
+      script(src="js/svg4everybody.js")
+      script svg4everybody();
+      script(src="js/picturefill.js")
+      script(src="js/script.js")
