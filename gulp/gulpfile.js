@@ -34,10 +34,10 @@ gulp.task("style", function() {
         sort: true
       })
     ]))
-    .pipe(gulp.dest("public/assets/css"))
+    .pipe(gulp.dest("../public/assets/css"))
     .pipe(minify())
     .pipe(rename("style.min.css"))
-    .pipe(gulp.dest("public/assets/css"))
+    .pipe(gulp.dest("../public/assets/css"))
     .pipe(server.reload({stream: true}));
 });
 
@@ -46,21 +46,21 @@ gulp.task('slim', function() {
   .pipe(slim({
       pretty: true
     }))
-  .pipe(gulp.dest("public/assets/"))
+  .pipe(gulp.dest("../public/assets/"))
   .pipe(server.reload({stream: true}));
 });
 
 gulp.task("images", function() {
-  return gulp.src("public/assets/img/**/*.{png,jpg,gif}")
+  return gulp.src("../public/assets/img/**/*.{png,jpg,gif}")
   .pipe(imagemin([
     imagemin.optipng({optimizationLevel: 3}),
     imagemin.jpegtran({progressive: true})
   ]))
-  .pipe(gulp.dest("public/assets/img"));
+  .pipe(gulp.dest("../public/assets/img"));
 });
 
 gulp.task("symbols", function() {
-  return gulp.src("public/assets/img/icons/*.svg")
+  return gulp.src("../public/assets/img/icons/*.svg")
   .pipe(cheerio({
     run: function ($) {
       $("[fill]").removeAttr("fill");
@@ -75,12 +75,12 @@ gulp.task("symbols", function() {
       inlineSvg: true
     }))
    .pipe(rename("symbols.svg"))
-  .pipe(gulp.dest("public/assets/img"));
+  .pipe(gulp.dest("../public/assets/img"));
 });
 
 gulp.task("serve", function() {
   server.init({
-    server: "public/assets/"
+    server: "../public/assets/"
   });
 
   gulp.watch("sass/**/*.{scss,sass}", ["style"]);
@@ -96,11 +96,11 @@ gulp.task("copy", function() {
  ], {
  base: "."
  })
- .pipe(gulp.dest("public/assets/"));
+ .pipe(gulp.dest("../public/assets/"));
 });
 
 gulp.task("clean", function() {
- return del("public/assets/");
+ return del("../public/assets/");
 });
 
 gulp.task("build", function(fn) {
