@@ -15,7 +15,7 @@
   animation: animation-background;
   animation-duration: 60s;
   animation-iteration-count: infinite;
-  animation-timing-function: cubic-bezier(0.26, 0.035, 0.105, 0.99);
+  animation-timing-function: steps(1);
 }
 
 @keyframes animation-result {

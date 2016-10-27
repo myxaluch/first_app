@@ -21,13 +21,9 @@
   border: 1px solid $gray1;
 }
 
-.form-block__input:hover {
-  border: 2px solid $gray1;
-  padding: 9px;
-}
-
+.form-block__input:hover,
 .form-block__input:focus {
-  border: 2px solid $gray1-opacity;
+  border: 2px solid $gray1;
   padding: 9px;
 }
 
@@ -39,15 +35,6 @@
   background-color: $gray1;
   color: $white1;
   font-size: 0;
-}
-
-.form-block__btn:hover {
-background-color: $gray1-opacity;
-}
-
-.form-block__btn:active {
-  outline: none;
-  background-color: $gray1-opacity-2;
 }
 
 .form-block__btn svg {
@@ -74,6 +61,12 @@ background-color: $gray1-opacity;
       width: 25px;
       height: 25px;
     }
+  }
+
+  .form-block__btn:hover svg,
+  .form-block__btn:active svg {
+    width: 27px;
+    height: 27px;
   }
 }
 
