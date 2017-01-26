@@ -1,0 +1,19 @@
+<div class='container'>
+  <%= form_for @additive, url: {action: "create"} do |f| %>
+    <%= render 'shared/error_messages', object: f.object%>
+    <%= f.label "Введите имя для загрузки информации
+                 с удалённого сайта и нажмите \"Загрузить\"" %>
+    <br></br>
+    <%= f.text_field :name, placeholder: 'Name' %>
+    <%= f.submit "Загрузить(опционально)", class: "btn dtn-default", name: "auto" %>
+    <br></br>
+    <%= f.text_field :category, placeholder: 'Category' %>
+    <br></br>
+    <%= f.select :danger, options_for_select([['Разрешена', 0], ['Нет информации', 1],
+                                                        ['Запрещена', 2]], 1), {},
+                          {class: 'form-control', id: 'select'} %>
+    <br></br>
+    <%= f.text_area :about, placeholder: 'Short about' %>
+    <%= f.submit "Сохранить", class: "btn btn-large btn-primary", name: "manual" %>
+  <% end %>
+</div>

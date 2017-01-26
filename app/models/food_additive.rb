@@ -1,6 +1,6 @@
 class FoodAdditive < ActiveRecord::Base
-  validates :name, presence: true
-  validates :about, presence: true
+  validates :name, :about, :category, :danger, presence: true
+
 
   def FoodAdditive.search_E query
     unless query.start_with? ("E")
@@ -8,5 +8,4 @@ class FoodAdditive < ActiveRecord::Base
     end
     FoodAdditive.find_by! name: query
   end
-
 end

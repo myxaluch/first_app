@@ -1,0 +1,30 @@
+.main__title {
+  margin: 0;
+  padding: 45px 0;
+  background-image: url("../img/bg-1.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 10%;
+  background-size: cover;
+}
+
+.main__title a {
+  display: block;
+  margin: 0 auto;
+}
+
+.main__title svg {
+  display: block;
+  margin: 0 auto;
+  fill: $white1;
+}
+
+.main__title svg path {
+  fill: $white1;
+}
+
+@media (min-width: $tablet-size) {
+  .main__title svg {
+    width: 600px;
+    height: 200px;
+  }
+}
