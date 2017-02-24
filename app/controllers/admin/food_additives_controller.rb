@@ -1,6 +1,4 @@
 class Admin::FoodAdditivesController < ApplicationController
-  require 'nokogiri'
-  require 'open-uri'
   if Rails.env.development? || Rails.env.test?
     require 'dotenv'
     Dotenv.load
@@ -20,7 +18,7 @@ class Admin::FoodAdditivesController < ApplicationController
   def search
     if params[:value].empty?
       flash[:danger] = "Пожалуйста, введите название добавки"
-      redirect_to :back
+      redirect_back(fallback_location: :index)
     else
       @query = params[:value].upcase
       @result = FoodAdditive.search_E @query
@@ -30,8 +28,7 @@ class Admin::FoodAdditivesController < ApplicationController
 
   def create
     if params[:auto]
-      @additive = FoodAdditive.new
-      parse_data params[:food_additive][:name].to_s
+      create_additive params[:food_additive][:name].to_s
     elsif params[:manual]
       @additive = FoodAdditive.new(additive_params)
     end
@@ -39,8 +36,12 @@ class Admin::FoodAdditivesController < ApplicationController
       flash[:success] = "Информация добавлена"
       redirect_to admin_food_additive_path(@additive.id)
     else
-      render 'new'
+      flash[:danger] = "Проблема с сохранением"
+      render :new
     end
+    rescue OpenURI::HTTPError
+      flash[:danger] = "Данной добавки не существует!"
+      redirect_back(fallback_location: :new)
   end
 
   def show
@@ -53,7 +54,7 @@ class Admin::FoodAdditivesController < ApplicationController
       flash[:success] = "Информация обновлена"
       redirect_to admin_path
     else
-      render 'show'
+      render :show
     end
   end
 
@@ -64,31 +65,13 @@ class Admin::FoodAdditivesController < ApplicationController
   end
 
 
-    private
+  private
 
-    def additive_params
-      params.require(:food_additive).permit(:name, :about, :category, :danger)
-    end
-
-    def parse_data(additive)
-      begin
-        doc = Nokogiri::HTML(open("#{ENV['SOURCE_URL']}#{additive}"))
-      rescue OpenURI::HTTPError => e
-        flash[:danger] = "Данной добавки не существует!"
-      else
-        @additive.name = additive
-        @additive.about = doc.css(".content p").first.content
-        @additive.category = doc.css(".categories a").first.content
-        if doc.css(".danger a").first.content == "низкая" ||
-           doc.css(".danger a").first.content == "очень низкая"
-              @additive.danger = 0
-        elsif doc.css(".danger a").first.content == "высокая" ||
-              doc.css(".danger a").first.content == "очень высокая"
-              @additive.danger = 2
-        else
-              @additive.danger = 1
-        end
-        @additive.source = "#{ENV['SOURCE_URL']}#{additive}"
-      end
-    end
+  def additive_params
+    params.require(:food_additive).permit(:name, :about, :category, :danger)
   end
+
+  def create_additive(additive)
+    FoodAdditiveService.call(additive)
+  end
+end

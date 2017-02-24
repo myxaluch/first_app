@@ -12,6 +12,4 @@ class StaticPagesController < ApplicationController
       @result = FoodAdditive.search_E @query
     end
   end
-
-
 end
