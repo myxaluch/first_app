@@ -5,7 +5,7 @@ class FoodAdditiveService
 
   class << self
 
-    def call(additive_name = nil)
+    def call(additive_name)
       return unless additive_name.present?
 
       additive.name = additive_name
@@ -21,6 +21,7 @@ class FoodAdditiveService
       else
             additive.danger = 1
       end
+
       additive
     end
 

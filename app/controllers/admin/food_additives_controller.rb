@@ -8,7 +8,7 @@ class Admin::FoodAdditivesController < ApplicationController
 
   def index
     @food_additives = FoodAdditive.paginate(page: params[:page]).order(:name)
-    @search_path = "/admin/search"
+    @search_path = admin_search_path
   end
 
   def new
@@ -17,31 +17,31 @@ class Admin::FoodAdditivesController < ApplicationController
 
   def search
     if params[:value].empty?
-      flash[:danger] = "Пожалуйста, введите название добавки"
-      redirect_back(fallback_location: :index)
+      flash[:danger] = t('.missing_name')
+      redirect_to admin_path
     else
       @query = params[:value].upcase
-      @result = FoodAdditive.search_E @query
+      @result = FoodAdditive.search_e @query
       redirect_to admin_food_additive_path(@result.id)
     end
   end
 
   def create
     if params[:auto]
-      create_additive params[:food_additive][:name].to_s
+      @additive = create_additive(params[:food_additive][:name].to_s)
     elsif params[:manual]
       @additive = FoodAdditive.new(additive_params)
     end
     if @additive.save
-      flash[:success] = "Информация добавлена"
+      flash[:success] = t('.save')
       redirect_to admin_food_additive_path(@additive.id)
     else
-      flash[:danger] = "Проблема с сохранением"
+      flash[:danger] = t('.save_error')
       render :new
     end
     rescue OpenURI::HTTPError
-      flash[:danger] = "Данной добавки не существует!"
-      redirect_back(fallback_location: :new)
+      flash[:danger] = t('.not_found')
+      redirect_to new_admin_food_additive_path
   end
 
   def show
@@ -51,19 +51,24 @@ class Admin::FoodAdditivesController < ApplicationController
   def update
     @additive = FoodAdditive.find(params[:id])
     if @additive.update_attributes(additive_params)
-      flash[:success] = "Информация обновлена"
-      redirect_to admin_path
+      flash[:success] = t('.update')
+      redirect_to admin_food_additive_path(@additive.id)
     else
+      flash[:danger] = t('.update_error')
       render :show
     end
   end
 
   def destroy
-    FoodAdditive.find(params[:id]).destroy
-    flash[:success] = "Информация удалена"
-    redirect_to admin_path
+    additive = FoodAdditive.find!(params[:id])
+    if additive.destroy
+      flash[:success] =t('.delete')
+      redirect_to admin_path
+    else
+      flash[:danger] = t('.delete_error')
+      render :show
+    end
   end
-
 
   private
 

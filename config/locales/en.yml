@@ -20,4 +20,42 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  static_pages:
+    search:
+      not_found: Additive not found
+      missing_name: PLease, enter the name of additive
+  shared:
+    search_form:
+      search: Search
+      add: Add
+      search_placeholder: Enter the name of additive
+  hello: Hello world
+  admin:
+    food_additives:
+      index:
+        list: List
+      new:
+        header_label: Enter the name of additive and press 'Load' for auto-filling information
+        name: Name
+        load_optional: Load (optional)
+        category: Category
+        about: About
+        save: Save
+      create:
+        save: Successfully saved
+        save_error: Problem with saving
+        not_found: Additive not found on source site
+      update:
+        update: Successfully updated
+        update_error: Problem with updating
+      destroy:
+        delete: Successfully deleted
+        delete_error: Problem with deleting
+      show:
+        original: Link to source
+        save: Save
+        delete: Delete
+        delete_confirm: Are your sure to want to delete this content?
+      search:
+        not_found: Additive not found
+        missing_name: PLease, enter the name of additive
