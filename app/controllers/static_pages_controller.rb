@@ -5,13 +5,11 @@ class StaticPagesController < ApplicationController
 
   def search
     if params[:value].empty?
-      flash[:danger] = "Пожалуйста, введите название добавки"
+      flash[:danger] = t('.missing_name')
       redirect_to :back
     else
       @query = params[:value].upcase
       @result = FoodAdditive.search_E @query
     end
   end
-
-
 end

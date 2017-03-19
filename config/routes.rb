@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'static_pages#index'
-  match '/search', to: 'static_pages#search', via: 'get'
+  match '/search', to: 'static_pages#search', via: :get
 
   namespace :admin do
     resources :food_additives, only: [:show, :new, :create, :update, :destroy]
-    match '/', to: 'food_additives#index', via: 'get'
-    match '/search', to: 'food_additives#search', via: 'get'
+    get '/', to: 'food_additives#index'
+    match '/search', to: 'food_additives#search', via: :get
   end
 
 

@@ -1,9 +1,0 @@
-<%= form_tag @search_path, method: 'get' do %>
-  <% if @result.nil?  %>
-    <%= text_field_tag :value, nil, class: "form-control", placeholder: "Введите номер добавки" %>
-  <% else %>
-    <%= text_field_tag :value, nil, class: "form-control", placeholder: "#{@result.name}" %>
-  <% end %>
-  <%= submit_tag "Поиск", class: "btn btn-large btn-primary" %>
-  <%= link_to "Добавить", new_admin_food_additive_path, class: "btn btn-large btn-default" if current_page?(admin_path)%>
-<% end%>

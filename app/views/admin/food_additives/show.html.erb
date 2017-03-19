@@ -1,22 +1,22 @@
 <br></br>
 <%= content_tag :div, class: 'container' do %>
-  <%= form_for @additive, url: {action: "update"} do |f| %>
+  <%= form_for @additive, url: { action: "update" } do |f| %>
     <%= render 'shared/error_messages', object: f.object%>
     <%= f.text_field :name, value: @additive.name %>
-    <%= link_to "Original", @additive.source %>
+    <%= link_to t('.original'), @additive.source %>
     <br></br>
     <%= f.text_field :category, value: @additive.category %>
     <br></br>
     <%= f.select :danger, options_for_select([['Разрешена', 0], ['Нет информации', 1],
                                               ['Запрещена', 2]],
                                               @additive.danger), {},
-                {class: 'form-control', id: 'select'} %>
+                { class: 'form-control', id: 'select' } %>
     <br></br>
     <%= f.text_area :about, value: @additive.about %>
     <br></br>
-    <%= f.submit "Сохранить", class: "btn btn-lg btn-primary" %>
-    <%= link_to "Удалить", admin_food_additive_path(@additive.id),
+    <%= f.submit t('.save'), class: "btn btn-lg btn-primary" %>
+    <%= link_to t('.delete'), admin_food_additive_path(@additive.id),
                            method: :delete, class: "btn btn-lg btn-danger",
-                           data: { confirm: "Are you sure?" } %>
+                           data: { confirm: t('.delete_confirm') } %>
   <% end %>
 <% end %>
