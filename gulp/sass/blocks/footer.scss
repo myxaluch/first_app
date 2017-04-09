@@ -1,18 +1,14 @@
 .footer {
   padding: 10px;
-  background-color: $gray2;
+  background-color: $gray1;
 }
 
 .flex-footer {
   display: flex;
   flex-direction: column;
+  flex: 0 0 auto;
   padding-top: 10px;
   padding-bottom: 10px;
-  flex: 0 0 auto;
-}
-
-.copyright--project {
-  align-self: flex-end;
 }
 
 @media (min-width: 550px) {

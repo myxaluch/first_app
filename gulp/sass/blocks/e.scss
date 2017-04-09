@@ -1,58 +1,59 @@
 .e {
-  position: relative;
-  width: 100%;
-  margin: 20px 0;
-  padding: 25px;
-  background: $white1;
-  border-top: 1px $gray1 solid;
-  border-bottom: 1px $gray1 solid;
+	position: relative;
+	padding: 16px;
+	border-top: 1px solid $gray1;
+	border-bottom: 1px solid $gray1;
+	background-color: $white2;
 
-    &--normal::after {
-      @include category($green2, "../img/normal.svg");
-    }
-
-    &--medium::after {
-      @include category($orange1, "../img/medium.svg");
-    }
-
-    &--danger::after {
-      @include category($red1, "../img/danger.svg");
-    }
+	&::after {
+		content: '';
+		position: absolute;
+		right: 16px;
+		top: 16px;
+		display: block;
+		width: 40px;
+		height: 40px;
+	}
 }
 
-.e--hidden {
-  display: none;
+.e--normal::after {
+	background: url('../img/leaf.svg') no-repeat right / contain;
+}
+
+.e--medium::after {
+	background: url('../img/leaf-yellow.svg') no-repeat right / contain;
+}
+
+.e--danger::after {
+	background: url('../img/leaf-red.svg') no-repeat right / contain;
+}
+
+.e__title {
+	margin: 0;
+	padding: 8px 50px 8px 0;
 }
 
 .e__element {
-  padding: 7px 0;
-}
-
-.e__element h2 {
-  margin: 0;
-  letter-spacing: 5px;
+	margin-top: 8px;
+	padding-right: 32px;
+	line-height: 22px;
 }
 
 .e__label {
-  font-family: $font;
-}
-
-.e__danger {
-  &--normal {
-    color: $green2;
-  }
-
-  &--medium {
-    color: $orange1;
-  }
-
-  &--danger {
-    color: $red1;
-  }
+	margin-right: 5px;
+	text-decoration: underline;
 }
 
 @media (min-width: $tablet-size) {
-  .e {
-    border: 1px $gray1 solid;
-  }
+	.e {
+		width: $tablet-width;
+		margin: 0 auto;
+		border: 1px solid $gray1;
+	}
+}
+
+@media (min-width: $desktop-size) {
+	.e {
+		width: $desktop-width;
+	}
 }

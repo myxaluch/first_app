@@ -1,30 +1,69 @@
-.main__title {
-  margin: 0;
-  padding: 45px 0;
-  background-image: url("../img/bg-1.jpg");
-  background-repeat: no-repeat;
-  background-position: 50% 10%;
-  background-size: cover;
+.main {
+	padding-top: 16px;
 }
 
-.main__title a {
-  display: block;
-  margin: 0 auto;
+.main__img {
+	width: 100%;
+	height: 45vh;
+	background: url('../img/plants.png') no-repeat center / cover;
+}
+
+.main__title {
+	margin-top: -11%;
+	margin-bottom: 8px;
+	text-align: center;
 }
 
 .main__title svg {
-  display: block;
-  margin: 0 auto;
-  fill: $white1;
+	width: 240px;
+	height: 50px;
+	fill: $green1;
 }
 
-.main__title svg path {
-  fill: $white1;
+.main__title--no-index {
+	margin: 0;
+	padding: 16px 0;
 }
 
 @media (min-width: $tablet-size) {
-  .main__title svg {
-    width: 600px;
-    height: 200px;
-  }
+	.main {
+		max-width: $tablet-width;
+		margin: 0 auto;
+		padding: 16px 0;
+	}
+
+	.main__img {
+		width: $tablet-width;
+		height: 400px;
+		margin: 0 auto;
+	}
+
+	.main__title {
+		margin-top: -32px;
+	}
+
+	.main__title svg {
+		width: 320px;
+		height: 100px;
+	}
+
+	.main__title--no-index {
+		padding-top: 56px;
+	}
+}
+
+@media (min-width: $desktop-size) {
+	.main {
+		max-width: $desktop-width;
+	}
+
+	.main__img {
+		width: $desktop-width;
+		height: 176px;
+		background-position: 0 -3px;
+	}
+
+	.main__title svg {
+		width: 400px;
+	}
 }
